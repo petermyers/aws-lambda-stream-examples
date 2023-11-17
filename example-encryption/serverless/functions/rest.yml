@@ -1,0 +1,6 @@
+handler: src/rest/index.handle
+events:
+  - http:
+      path: '{proxy+}'
+      method:
+        - post

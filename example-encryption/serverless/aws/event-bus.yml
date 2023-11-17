@@ -1,0 +1,19 @@
+output:
+  eventBusName:
+    Ref: EventBus
+  eventBusArn:
+    Fn::GetAtt: [ EventBus, Arn ]
+
+resources:
+  Resources:
+    EventBus:
+      Type: AWS::Events::EventBus
+      Properties:
+        Name: ${self:service}-${opt:stage}-event-bus
+
+iamRoleStatements:
+  Effect: Allow
+  Action:
+    - events:PutEvents
+  Resource: 
+    Fn::GetAtt: [ EventBus, Arn ]

@@ -1,0 +1,2 @@
+deploymentBucket:
+  name: aws-lambda-stream-example-${aws:accountId}-${opt:region}

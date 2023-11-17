@@ -1,0 +1,4 @@
+webpack:
+  includeModules: true
+  
+# vpcConfig: ${file(serverless/aws/vpc.yml)}

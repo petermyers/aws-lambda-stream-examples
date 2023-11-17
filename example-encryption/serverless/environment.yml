@@ -1,0 +1,10 @@
+PROJECT: ${self:service}
+STAGE: ${opt:stage}
+DEBUG: ${file(serverless/params.yml):${opt:stage}.debug}
+ENTITY_TABLE_NAME: ${file(serverless/aws/dynamodb.yml):output.tableName}
+BUS_NAME: ${file(serverless/aws/event-bus.yml):output.eventBusName}
+BUS_ARN: ${file(serverless/aws/event-bus.yml):output.eventBusArn}
+MASTER_KEY_ALIAS: ${file(serverless/aws/kms.yml):output.masterKeyAlias}
+# MASTER_KEY_ARN: ${file(serverless/aws/kms.yml):output.masterKeyArn}
+KMS_REGIONS: us-east-1
+# KMS_REGIONS: us-east-1,us-west-2

@@ -1,0 +1,7 @@
+tools/
+lib/
+coverage/
+webpackage.config.js
+.idea
+*.iml
+bak

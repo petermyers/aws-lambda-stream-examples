@@ -1,0 +1,6 @@
+# Typically, this would be a separate service. It is included here only for
+# completeness of the example configuration.
+handler: src/downstream-listener/index.handle
+events:
+  - sqs:
+      arn: ${file(serverless/aws/sqs.yml):output.downstreamListenerChannelArn}
