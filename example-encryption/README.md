@@ -23,7 +23,7 @@ Execute the created API gateway at proxy path `/createTestEntity` using json pay
 
 Take a look at the logs for the downstream listener lambda. Observe that the incoming value for the `testKey` attribute is encrypted on the event and then is decrypted before logging it out.
 
-Note the unit of work logged out. You can see the even both before and after decryption.
+Note the unit of work logged out. You can see the event both before and after decryption.
 ```
 {
   pipeline: 'LoggerPipeline',
