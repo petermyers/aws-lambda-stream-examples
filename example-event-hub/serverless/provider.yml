@@ -1,0 +1,4 @@
+name: aws
+architecture: arm64
+deploymentBucket: ${file(serverless/aws/cfn.yml):deploymentBucket}
+stackTags: ${file(serverless/aws/tags.yml):stackTags}

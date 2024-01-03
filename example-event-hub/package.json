@@ -1,0 +1,27 @@
+{
+  "name": "example-event-hub",
+  "version": "0.0.1",
+  "description": "Example event hub component.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/petermyers/aws-lambda-stream-examples/example-event-hub"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "example",
+    "encryption"
+  ],
+  "author": "petermyers",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf -rf .serverless/",
+    "test:sls": "sls package --verbose -r us-east-1 -s dev",
+    "dp:dev": "sls deploy --verbose -r us-east-1 -s dev --force",
+    "dy:dev": "sls remove --verbose -r us-east-1 -s dev"
+  },
+  "devDependencies": {
+    "serverless": "^3.36.0",
+    "serverless-deployment-bucket": "^1.6.0"
+  }
+}

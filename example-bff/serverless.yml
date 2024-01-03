@@ -1,0 +1,20 @@
+frameworkVersion: '3'
+service: example-bff-service
+
+provider: ${file(serverless/provider.yml)}
+package:
+  individually: true
+params: ${file(serverless/params.yml)}
+custom: ${file(serverless/custom.yml)}
+plugins: ${file(serverless/plugins.yml)}
+
+functions:
+  rest: ${file(serverless/functions/rest.yml)}
+  trigger: ${file(serverless/functions/trigger.yml)}
+
+resources:
+  - ${file(serverless/aws/event-bus.yml):resources}
+  - ${file(serverless/aws/kms.yml):resources}
+  - ${file(serverless/aws/apigw.yml):resources}
+  - ${file(serverless/aws/dynamodb.yml):resources}
+  - ${file(serverless/aws/cognito.yml):resources}

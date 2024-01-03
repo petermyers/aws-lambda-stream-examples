@@ -1,0 +1,8 @@
+frameworkVersion: '3'
+service: example-event-hub
+
+provider: ${file(serverless/provider.yml)}
+plugins: ${file(serverless/plugins.yml)}
+
+resources:
+  - ${file(serverless/aws/event-bus.yml):resources}

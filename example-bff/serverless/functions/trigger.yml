@@ -1,0 +1,7 @@
+handler: src/trigger/index.handle
+events:
+  - stream:
+      type: dynamodb
+      arn: ${file(serverless/aws/dynamodb.yml):output.tableStreamArn}
+      batchSize: 100
+      startingPosition: TRIM_HORIZON

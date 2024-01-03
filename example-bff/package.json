@@ -1,11 +1,11 @@
 {
-  "name": "example-encryption",
+  "name": "example-bff",
   "version": "0.0.1",
-  "description": "Example usage of aws-kms-ee library for encryption.",
+  "description": "Example of rest bff hooked up to dynamo.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/petermyers/aws-lambda-stream-examples/example-encryption"
+    "url": "https://github.com/petermyers/aws-lambda-stream-examples/example-bff"
   },
   "keywords": [
     "aws",
