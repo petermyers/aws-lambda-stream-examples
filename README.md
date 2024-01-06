@@ -23,7 +23,7 @@ Meant to act as standalone examples, not as components. As such, you'll see cert
 - Cognito api gateway authorizer
 - Trigger function
 
-**[Example Connector Test](/example-connector-test/)**
+**[Example Connector Test](/example-connector-test/)**  
 *Test project. Custom flavors for testing all the connector functionality in [aws-lambda-stream](https://github.com/jgilbert01/aws-lambda-stream). No other functional purpose.*
 - Common event bus
 - DDB table
