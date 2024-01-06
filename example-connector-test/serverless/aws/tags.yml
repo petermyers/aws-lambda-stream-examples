@@ -1,0 +1,4 @@
+stackTags:
+  service: ${self:service}
+  environment: ${opt:stage}
+  

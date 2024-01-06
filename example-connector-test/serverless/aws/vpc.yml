@@ -1,0 +1,51 @@
+# Config for https://www.serverless.com/plugins/serverless-vpc-plugin
+vpcConfig:
+    enabled: true
+    cidrBlock: '10.0.0.0/16'
+    
+    # if createNatGateway is a boolean "true", a NAT Gateway and EIP will be provisioned in each zone
+    # if createNatGateway is a number, that number of NAT Gateways will be provisioned
+    createNatGateway: 1
+
+    # When enabled, the DB subnet will only be accessible from the Application subnet
+    # Both the Public and Application subnets will be accessible from 0.0.0.0/0
+    createNetworkAcl: false
+
+    # Whether to create the DB subnet
+    createDbSubnet: false
+
+    # Whether to enable VPC flow logging to an S3 bucket
+    createFlowLogs: false
+
+    # Whether to create a bastion host
+    createBastionHost: false
+    bastionHostKeyName: MyKey # required if creating a bastion host
+
+    # Whether to create a NAT instance
+    createNatInstance: false
+
+    # Whether to create AWS Systems Manager (SSM) Parameters
+    createParameters: false
+
+    # Optionally specify AZs (defaults to auto-discover all availabile AZs)
+    zones:
+      # - us-east-1a
+      # - us-east-1b
+      # - us-east-1c
+
+    # By default, S3 and DynamoDB endpoints will be available within the VPC
+    # see https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html
+    # for a list of available service endpoints to provision within the VPC
+    # (varies per region)
+    services:
+      - dynamodb
+      - kms
+      # - secretsmanager
+
+    # Optionally specify subnet groups to create. If not provided, subnet groups
+    # for RDS, Redshift, ElasticCache and DAX will be provisioned.
+    subnetGroups:
+      # - rds
+
+    # Whether to export stack outputs so it may be consumed by other stacks
+    exportOutputs: false

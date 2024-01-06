@@ -1,0 +1,31 @@
+output:
+  masterKeyArn:
+    Fn::GetAtt: [ MasterKey, Arn ]
+  masterKeyAlias:
+    Ref: MasterKeyAlias
+
+resources:
+  Resources:
+    MasterKey:
+      Type: AWS::KMS::Key
+      Properties:
+        Description: "${self:service} master key."
+        Enabled: true
+    MasterKeyAlias:
+      Type: AWS::KMS::Alias
+      Properties:
+        AliasName: alias/master
+        TargetKeyId:
+          Ref: MasterKey
+
+
+iamRoleStatements:
+  Effect: Allow
+  Action:
+    - kms:ListKeys
+    - kms:ListAliases
+    - kms:GenerateDataKey
+    - kms:Encrypt
+    - kms:Decrypt
+  Resource:
+    Fn::GetAtt: [ MasterKey, Arn ]

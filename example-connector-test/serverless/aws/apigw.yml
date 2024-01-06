@@ -1,0 +1,61 @@
+output:
+  apiGatewayAuthorizerId:
+    Ref: ApiGatewayAuthorizer
+
+resources:
+  Resources:
+    ApiGatewayAuthorizer: 
+    # DependsOn:
+    #   - ApiGatewayRestApi
+      Type: AWS::ApiGateway::Authorizer
+      Properties: 
+        AuthorizerResultTtlInSeconds: 300
+        IdentitySource: method.request.header.Authorization
+        RestApiId:
+          Ref: ApiGatewayRestApi
+        Type: COGNITO_USER_POOLS
+        Name: Authorizer
+        ProviderARNs: 
+          - Fn::Join:
+            - ''
+            - - 'arn:aws:cognito-idp:'
+              - ${aws:region}
+              - ':'
+              - ${aws:accountId}
+              - ':userpool/'
+              - ${file(serverless/aws/cognito.yml):output.userPoolId}
+
+    GatewayResponseDefault4XX:
+      Type: AWS::ApiGateway::GatewayResponse
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+        ResponseType: DEFAULT_4XX
+        RestApiId:
+          Ref: ApiGatewayRestApi
+
+    GatewayResponseDefault5XX:
+      Type: AWS::ApiGateway::GatewayResponse
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+        ResponseType: DEFAULT_5XX
+        RestApiId:
+          Ref: ApiGatewayRestApi
+
+# httpProviderConfig:
+#   cors: true
+#   shouldStartNameWithService: true
+#   authorizers:
+#     serviceAuthorizer:
+#       identitySource: $request.header.Authorization
+#       audience: ${file(serverless/aws/cognito.yml):output.userPoolClientId}
+#       issuerUrl:
+#         Fn::Join:
+#           - ''
+#           - - 'https://cognito-idp.'
+#             - ${opt:region}
+#             - '.amazonaws.com/'
+#             - ${file(serverless/aws/cognito.yml):output.userPoolId}

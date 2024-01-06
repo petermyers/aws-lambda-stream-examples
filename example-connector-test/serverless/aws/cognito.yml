@@ -1,0 +1,65 @@
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html
+output:
+  userPoolId:
+    Ref: CognitoUserPool
+  userPoolClientId:
+    Ref: CognitoUserPoolClient
+
+resources:
+  Resources:
+    CognitoUserPool:
+      Type: AWS::Cognito::UserPool
+      Properties:
+        UserPoolName: ${self:service}-${opt:stage}-user-pool
+        UsernameAttributes:
+          - email
+        AutoVerifiedAttributes:
+          - email
+
+    CognitoUserPoolClient:
+      Type: AWS::Cognito::UserPoolClient
+      Properties:
+        ClientName: ${self:service}-${opt:stage}-client
+        AllowedOAuthFlows:
+          - implicit
+        AllowedOAuthFlowsUserPoolClient: true
+        AllowedOAuthScopes:
+          - openid # required to use email scope
+          - email
+          - profile
+          - aws.cognito.signin.user.admin
+        UserPoolId:
+          Ref: CognitoUserPool
+        CallbackURLs:
+          - https://localhost:3000
+        ExplicitAuthFlows:
+          - ALLOW_USER_SRP_AUTH
+          - ALLOW_REFRESH_TOKEN_AUTH
+          - ALLOW_ADMIN_USER_PASSWORD_AUTH
+        SupportedIdentityProviders:
+          - COGNITO
+        GenerateSecret: false
+
+    CognitoUserPoolDomain:
+      Type: AWS::Cognito::UserPoolDomain
+      Properties:
+        UserPoolId:
+          Ref: CognitoUserPool
+        Domain: ${self:service}-user-pool-${opt:stage}
+
+    UserPoolAdministratorsGroup:
+      Type: AWS::Cognito::UserPoolGroup
+      Properties:
+        GroupName: administrators
+        Description: Administrators
+        UserPoolId: 
+          Ref: CognitoUserPool
+
+    UserPoolUsersGroup:
+      Type: AWS::Cognito::UserPoolGroup
+      Properties:
+        GroupName: users
+        Description: Users
+        UserPoolId: 
+          Ref: CognitoUserPool

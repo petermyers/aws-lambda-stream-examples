@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.eslintcache
+.idea
+.npmrc
+.nyc_output
+.scannerwork
+.serverless
+.vscode
+.webpack
+*.iml
+*.log
+bak
+coverage
+node_modules
+
+auth.json
