@@ -3,7 +3,7 @@ import { DynamoDBConnector } from 'aws-lambda-stream';
 import apiGenerator from 'lambda-api';
 import { createTestEntity, deleteTestEntity, getTestEntity, listTestEntities, updateTestEntity } from './routes/test-entity';
 import Model from '../models/test-entity';
-import { getClaims, getUserContext, getUserGroups, getUsername } from '../utils';
+import { getUserContext } from '../utils';
 
 const api = apiGenerator();
 

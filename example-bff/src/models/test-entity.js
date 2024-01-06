@@ -137,7 +137,7 @@ class Model {
       sk: offset,
       discriminator: DISCRIMINATOR,
     } : null;
-    const pageSize = limit || 10;
+    const pageSize = parseInt(limit) || 10;
 
     const params = {
       IndexName: 'DiscriminatedPKIndex',

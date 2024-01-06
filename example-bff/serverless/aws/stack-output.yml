@@ -1,0 +1,8 @@
+resources:
+  Outputs:
+    CognitoUserPoolID: 
+      Value: ${file(serverless/aws/cognito.yml):output.userPoolId}
+    CognitoClientID: 
+      Value: ${file(serverless/aws/cognito.yml):output.userPoolClientId}
+    ApiGatewayAuthorizer: 
+      Value: ${file(serverless/aws/apigw.yml):output.apiGatewayAuthorizerId}

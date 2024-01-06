@@ -18,3 +18,4 @@ resources:
   - ${file(serverless/aws/apigw.yml):resources}
   - ${file(serverless/aws/dynamodb.yml):resources}
   - ${file(serverless/aws/cognito.yml):resources}
+  - ${file(serverless/aws/stack-output.yml):resources}
