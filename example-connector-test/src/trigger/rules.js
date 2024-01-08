@@ -5,11 +5,8 @@ export default [
   {
     id: 'TestEntityCDC',
     flavor: cdc,
-    eventType: /test-entity-(created)/,
+    eventType: /test-entity-(created|updated|deleted)/,
     toEvent,
-    publish: publishToEventBridge,
-    eem: {
-      fields: [ 'testKey' ]
-    }
+    publish: publishToEventBridge
   }
 ];

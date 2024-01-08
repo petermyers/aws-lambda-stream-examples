@@ -3,3 +3,4 @@ role:
     - ${file(serverless/aws/dynamodb.yml):iamRoleStatements}
     - ${file(serverless/aws/event-bus.yml):iamRoleStatements}
     - ${file(serverless/aws/kms.yml):iamRoleStatements}
+    - ${file(serverless/aws/cloudwatch.yml):iamRoleStatements}

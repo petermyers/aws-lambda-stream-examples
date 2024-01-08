@@ -1,0 +1,42 @@
+output:
+  listenerChannelArn:
+    Fn::GetAtt: [ ListenerChannel, Arn ]
+
+resources:
+  Resources:
+    ListenerChannel:
+      Type: "AWS::SQS::Queue"
+      Properties:
+        QueueName: ${self:service}-${opt:stage}-downstream-listener-channel
+    ListenerChannelBusPolicy:
+      Type: AWS::SQS::QueuePolicy
+      Properties:
+        Queues:
+          # Could also use Ref: ListenerChannel here.
+          - Fn::GetAtt: [ ListenerChannel, QueueUrl ]
+        PolicyDocument:
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service: events.amazonaws.com
+              Action:
+                - sqs:SendMessage
+              Condition:
+                ArnEquals:
+                  aws:SourceArn:
+                    Fn::GetAtt: [ ListenerChannelBusRule, Arn ]
+              Resource:
+                - Fn::GetAtt: [ ListenerChannel, Arn ]
+    ListenerChannelBusRule:
+      Type: AWS::Events::Rule
+      Properties:
+        EventBusName: ${file(serverless/aws/event-bus.yml):output.eventBusName}
+        EventPattern:
+          detail-type:
+            - prefix: 'test-entity'
+        State: ENABLED
+        Targets:
+          - Id: ListenerChannel
+            Arn:
+              Fn::GetAtt: [ ListenerChannel, Arn ]
+            InputPath: $.detail

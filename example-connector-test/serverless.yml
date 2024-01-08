@@ -1,5 +1,5 @@
 frameworkVersion: '3'
-service: example-bff-service
+service: example-connector-test-service
 
 provider: ${file(serverless/provider.yml)}
 package:
@@ -11,6 +11,7 @@ plugins: ${file(serverless/plugins.yml)}
 functions:
   rest: ${file(serverless/functions/rest.yml)}
   trigger: ${file(serverless/functions/trigger.yml)}
+  listener: ${file(serverless/functions/listener.yml)}
 
 resources:
   - ${file(serverless/aws/event-bus.yml):resources}
@@ -18,4 +19,5 @@ resources:
   - ${file(serverless/aws/apigw.yml):resources}
   - ${file(serverless/aws/dynamodb.yml):resources}
   - ${file(serverless/aws/cognito.yml):resources}
+  - ${file(serverless/aws/sqs.yml):resources}
   - ${file(serverless/aws/stack-output.yml):resources}
