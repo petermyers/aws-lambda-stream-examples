@@ -1,4 +1,6 @@
-# Backend for Frontend (BFF)
+# Connector Test
+A set of test operations for connector operations. Written to test AWS SDK v3 upgrade of [aws-lambda-stream](https://github.com/jgilbert01/aws-lambda-stream).
+
 ### Setup
 Ensure you are authenticated with AWS.  
 https://www.serverless.com/framework/docs/providers/aws/guide/credentials  
