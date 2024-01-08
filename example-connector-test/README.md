@@ -13,19 +13,19 @@ This will deploy all the infrastructure including the API gateway and lambda fun
 TODO - Image of infrastructure and description of lambdas.
 
 ### Connector Test
-| Connector   | Pipeline That Covers It | Verified              |
-|-------------|-------------------------|-----------------------|
-| Cloudwatch  | CloudwatchConnectorTest | <ul><li>[x]</li></ul> |
-| DynamoDB    | DynamoDBConnectorTest   | <ul><li>[ ]</li></ul> |
-| EventBridge | TestEntityCDC           | <ul><li>[x]</li></ul> |
-| Fetch       | FetchConnectorTest      | <ul><li>[ ]</li></ul> |
-| Firehose    | FirehoseConnectorTest   | <ul><li>[ ]</li></ul> |
-| Kinesis     | KinesisConnectorTest    | <ul><li>[ ]</li></ul> |
-| Lambda      | LambdaConnectorTest     | <ul><li>[ ]</li></ul> |
-| S3          | S3ConnectorTest         | <ul><li>[ ]</li></ul> |
-| SecretsMgr  | FetchConnectorTest      | <ul><li>[ ]</li></ul> |
-| Sns         | SnsConnectorTest        | <ul><li>[ ]</li></ul> |
-| Sqs         | SqsConnectorTest        | <ul><li>[ ]</li></ul> |
+| Connector   | Pipeline That Covers It | Verified           |
+|-------------|-------------------------|--------------------|
+| Cloudwatch  | CloudwatchConnectorTest | :heavy_check_mark: |
+| DynamoDB    | DynamoDBConnectorTest   |                    |
+| EventBridge | TestEntityCDC           | :heavy_check_mark: |
+| Fetch       | FetchConnectorTest      |                    |
+| Firehose    | FirehoseConnectorTest   |                    |
+| Kinesis     | KinesisConnectorTest    |                    |
+| Lambda      | LambdaConnectorTest     |                    |
+| S3          | S3ConnectorTest         |                    |
+| SecretsMgr  | FetchConnectorTest      |                    |
+| Sns         | SnsConnectorTest        |                    |
+| Sqs         | SqsConnectorTest        |                    |
 
 ### Execute API
 Execute the created API gateway with the following proxy paths:  
