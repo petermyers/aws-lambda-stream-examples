@@ -25,11 +25,3 @@ Meant to act as standalone examples, not as components. As such, you'll see cert
 
 **[Example Connector Test](/example-connector-test/)**  
 *Test project. Custom flavors for testing all the connector functionality in [aws-lambda-stream](https://github.com/jgilbert01/aws-lambda-stream). No other functional purpose.*
-- Common event bus
-- DDB table
-- Cognito user pool
-- Rest endpoint
-- Cognito api gateway authorizer
-- Trigger function
-- SQS channel
-- Downstream listener
