@@ -15,7 +15,9 @@ iamRoleStatements:
     - dynamodb:GetItem
     - dynamodb:UpdateItem
     - dynamodb:PutItem
-    - dynamodn:DeleteItem
+    - dynamodb:DeleteItem
+    - dynamodb:Scan
+    - dynamodb:BatchGetItem
   Resource:
     - Fn::GetAtt: [ EntitiesTable, Arn ]
     - Fn::Join:

@@ -17,10 +17,10 @@ TODO - Image of infrastructure and description of lambdas.
 ### Connector Test
 | Connector   | Pipeline That Covers It | Verified           |
 |-------------|-------------------------|--------------------|
-| Cloudwatch  | CloudwatchConnectorTest | :heavy_check_mark: |
-| DynamoDB    | DynamoDBConnectorTest   |                    |
 | EventBridge | TestEntityCDC           | :heavy_check_mark: |
-| Fetch       | FetchConnectorTest      |                    |
+| Cloudwatch  | CloudwatchConnectorTest | :heavy_check_mark: |
+| DynamoDB    | DynamoDBConnectorTest   | :heavy_check_mark: |
+| Fetch       | FetchConnectorTest      | :heavy_check_mark: |
 | Firehose    | FirehoseConnectorTest   |                    |
 | Kinesis     | KinesisConnectorTest    |                    |
 | Lambda      | LambdaConnectorTest     |                    |
@@ -28,6 +28,14 @@ TODO - Image of infrastructure and description of lambdas.
 | SecretsMgr  | FetchConnectorTest      |                    |
 | Sns         | SnsConnectorTest        |                    |
 | Sqs         | SqsConnectorTest        |                    |
+
+To run a connector test, provide the name of the connector as an attribute in the `testEntity` you create or update. (See Execute API below). The exception is EventBridge. Every entity you post flows through the EventBridge connector in the trigger function, so there is no specific connector test in the listener for it.
+
+```json
+{
+  "connector": "dynamodb"
+}
+```
 
 ### Execute API
 Execute the created API gateway with the following proxy paths:  

@@ -1,5 +1,6 @@
 import { cloudwatchConnectorTest } from '../flavors/cloudwatch-connector';
-import { toMetricPutRequest } from '../models/connector-test';
+import { dynamoDbConnectorTest } from '../flavors/dynamodb-connector';
+import { fetchConnectorTest } from '../flavors/fetch-connector';
 
 export default [
   {
@@ -10,6 +11,13 @@ export default [
   {
     id: 'CloudwatchConnectorTest',
     flavor: cloudwatchConnectorTest,
-    toMetricPutRequest
+  },
+  {
+    id: 'DynamoDBConnectorTest',
+    flavor: dynamoDbConnectorTest
+  },
+  {
+    id: 'FetchConnectorTest',
+    flavor: fetchConnectorTest
   }
 ];
