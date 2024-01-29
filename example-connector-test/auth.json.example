@@ -1,7 +1,7 @@
 {
     "UserPoolId": "user pool id",
     "ClientId": "user pool client id",
-    "AuthFlow": "ADMIN_NO_SRP_AUTH",
+    "AuthFlow": "ADMIN_USER_PASSWORD_AUTH",
     "AuthParameters": {
         "USERNAME": "email",
         "PASSWORD": "password"
