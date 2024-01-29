@@ -26,6 +26,7 @@
     "test:sls": "sls package --verbose -r us-east-1 -s dev",
     "dp:dev": "sls deploy --verbose -r us-east-1 -s dev --force",
     "dy:dev": "sls remove --verbose -r us-east-1 -s dev",
+    "dy:s3": "sls s3remove --verbose -r us-east-1 -s dev",
     "start": "sls offline --port 3001 --apiKey test-api-key-12345 -r us-east-1 -s dev"
   },
   "betterScripts": {

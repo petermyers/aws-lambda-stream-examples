@@ -1,0 +1,96 @@
+output:
+  firehoseDeliveryStreamName:
+    Ref: DeliveryStream
+  deliveryBucketName:
+    Ref: DeliveryBucket
+
+resources:
+  Resources:
+    DeliveryStreamLogGroup:
+      Type: AWS::Logs::LogGroup
+      Properties:
+        LogGroupName: /aws/kinesisfirehose/${self:service}-${opt:stage}-DeliveryStream
+        RetentionInDays: ${param:logRetentionInDays}
+
+    DeliveryStreamLogStream:
+      Type: AWS::Logs::LogStream
+      Properties:
+        LogGroupName: !Ref DeliveryStreamLogGroup
+        LogStreamName: ${self:service}
+    
+    DeliveryStream:
+      Type: AWS::KinesisFirehose::DeliveryStream
+      Properties:
+        DeliveryStreamType: DirectPut
+        ExtendedS3DestinationConfiguration:
+          BucketARN:
+            Fn::GetAtt: [ DeliveryBucket, Arn ]
+          Prefix: ${opt:region}/
+          BufferingHints:
+            IntervalInSeconds: 60
+            SizeInMBs: 50
+          CompressionFormat: GZIP
+          RoleARN:
+            Fn::GetAtt: [ DeliveryRole, Arn ]
+          CloudWatchLoggingOptions:
+            Enabled: true
+            LogGroupName: 
+              Ref: DeliveryStreamLogGroup
+            LogStreamName: 
+              Ref: DeliveryStreamLogStream
+
+    DeliveryRole:
+      Type: AWS::IAM::Role
+      Properties:
+        AssumeRolePolicyDocument:
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service: firehose.amazonaws.com
+              Action: sts:AssumeRole
+        Policies:
+          - PolicyName: delivery
+            PolicyDocument:
+              Statement:
+                - Effect: Allow
+                  Action:
+                    - s3:AbortMultipartUpload
+                    - s3:GetBucketLocation
+                    - s3:GetObject
+                    - s3:ListBucket
+                    - s3:ListBucketMultipartUploads
+                    - s3:PutObject
+                  Resource:
+                    - Fn::GetAtt: [ DeliveryBucket, Arn ]
+                    - Fn::Join:
+                      - /
+                      - - Fn::GetAtt: [ DeliveryBucket, Arn ]
+                        - '*'
+                - Effect: Allow
+                  Action:
+                    - logs:CreateLogStream
+                    - logs:CreateLogGroup
+                    - logs:PutLogEvents
+                  Resource:
+                    - Fn::GetAtt: [ DeliveryStreamLogGroup, Arn ]
+
+    DeliveryBucket:
+      Type: AWS::S3::Bucket
+      DeletionPolicy: Retain
+      Properties:
+        BucketName: ${self:service}-${opt:stage}-${opt:region}-firehose
+        AccessControl: Private
+        # BucketEncryption:
+        #   ServerSideEncryptionConfiguration:
+        #     - ServerSideEncryptionByDefault:
+        #         SSEAlgorithm: AES256
+        VersioningConfiguration:
+          Status: Enabled
+
+iamRoleStatements:
+  Effect: Allow
+  Action:
+    - firehose:PutRecord
+    - firehose:PutRecordBatch
+  Resource: 
+    Fn::GetAtt: [ DeliveryStream, Arn ]

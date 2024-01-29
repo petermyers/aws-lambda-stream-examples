@@ -21,7 +21,7 @@ TODO - Image of infrastructure and description of lambdas.
 | Cloudwatch  | CloudwatchConnectorTest | :heavy_check_mark: |
 | DynamoDB    | DynamoDBConnectorTest   | :heavy_check_mark: |
 | Fetch       | FetchConnectorTest      | :heavy_check_mark: |
-| Firehose    | FirehoseConnectorTest   |                    |
+| Firehose    | FirehoseConnectorTest   | :heavy_check_mark: |
 | Kinesis     | KinesisConnectorTest    |                    |
 | Lambda      | LambdaConnectorTest     |                    |
 | S3          | S3ConnectorTest         |                    |

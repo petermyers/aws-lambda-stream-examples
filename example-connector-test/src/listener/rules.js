@@ -1,6 +1,7 @@
 import { cloudwatchConnectorTest } from '../flavors/cloudwatch-connector';
 import { dynamoDbConnectorTest } from '../flavors/dynamodb-connector';
 import { fetchConnectorTest } from '../flavors/fetch-connector';
+import { firehoseConnectorTest } from '../flavors/firehose-connector';
 
 export default [
   {
@@ -19,5 +20,9 @@ export default [
   {
     id: 'FetchConnectorTest',
     flavor: fetchConnectorTest
+  },
+  {
+    id: 'FirehoseConnectorTest',
+    flavor: firehoseConnectorTest
   }
 ];

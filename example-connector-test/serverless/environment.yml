@@ -4,3 +4,4 @@ DEBUG: ${file(serverless/params.yml):${opt:stage}.debug}
 ENTITY_TABLE_NAME: ${file(serverless/aws/dynamodb.yml):output.tableName}
 BUS_NAME: ${file(serverless/aws/event-bus.yml):output.eventBusName}
 BUS_ARN: ${file(serverless/aws/event-bus.yml):output.eventBusArn}
+DELIVERY_STREAM_NAME: ${file(serverless/aws/firehose.yml):output.firehoseDeliveryStreamName}

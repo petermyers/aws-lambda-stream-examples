@@ -21,3 +21,4 @@ resources:
   - ${file(serverless/aws/cognito.yml):resources}
   - ${file(serverless/aws/sqs.yml):resources}
   - ${file(serverless/aws/stack-output.yml):resources}
+  - ${file(serverless/aws/firehose.yml):resources}
