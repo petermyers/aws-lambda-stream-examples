@@ -5,3 +5,4 @@ role:
     - ${file(serverless/aws/kms.yml):iamRoleStatements}
     - ${file(serverless/aws/cloudwatch.yml):iamRoleStatements}
     - ${file(serverless/aws/firehose.yml):iamRoleStatements}
+    - ${file(serverless/aws/lambda.yml):iamRoleStatements}

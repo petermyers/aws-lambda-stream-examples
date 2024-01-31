@@ -12,6 +12,7 @@ functions:
   rest: ${file(serverless/functions/rest.yml)}
   trigger: ${file(serverless/functions/trigger.yml)}
   listener: ${file(serverless/functions/listener.yml)}
+  invoke-test: ${file(serverless/functions/invoke-test.yml)}
 
 resources:
   - ${file(serverless/aws/event-bus.yml):resources}

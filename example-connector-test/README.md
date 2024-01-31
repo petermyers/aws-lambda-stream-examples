@@ -23,7 +23,7 @@ TODO - Image of infrastructure and description of lambdas.
 | Fetch       | FetchConnectorTest      | :heavy_check_mark: |
 | Firehose    | FirehoseConnectorTest   | :heavy_check_mark: |
 | Kinesis     | KinesisConnectorTest    |                    |
-| Lambda      | LambdaConnectorTest     |                    |
+| Lambda      | LambdaConnectorTest     | :heavy_check_mark: |
 | S3          | S3ConnectorTest         |                    |
 | SecretsMgr  | FetchConnectorTest      |                    |
 | Sns         | SnsConnectorTest        |                    |
