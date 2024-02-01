@@ -6,7 +6,7 @@ export const secretsConnectorTest = (rule) => (stream) =>
     .filter((uow) => uow.event?.entity?.connector === 'secrets')
     .tap(() => console.log("SecretsMgr connector test pipeline beginning."))
     .through(getSecrets({ secretId: process.env.NOT_SO_SECRET_NAME }))
-    .map(performValidation(rule))
+    .tap(performValidation(rule))
     .tap(() => console.log("SecretsMgr connector test pipeline ending."))
 
 const performValidation = (rule) => faulty((uow) => {
@@ -16,7 +16,6 @@ const performValidation = (rule) => faulty((uow) => {
   } else {
     console.log("SecretsMgr connector test validation FAILED");
   }
-  return true;
 });
 
 // Yes...typically this probably wouldn't be used in a pipeline, just once up front.

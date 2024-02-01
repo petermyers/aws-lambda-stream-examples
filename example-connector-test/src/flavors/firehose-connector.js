@@ -5,7 +5,7 @@ export const firehoseConnectorTest = (rule) => (stream) =>
     .filter((uow) => uow.event?.entity?.connector === 'firehose')
     .tap(() => console.log("Firehose connector test pipeline beginning."))
     .through(sendToFirehose(rule))
-    .map(performValidation(rule))
+    .tap(performValidation(rule))
     .tap(() => console.log("Firehose connector test pipeline ending."));
 
   const performValidation = (rule) => faulty((uow) => {
@@ -15,5 +15,4 @@ export const firehoseConnectorTest = (rule) => (stream) =>
     } else {
       console.log("Firehose connector test validation FAILED.");
     }
-    return true;
   });

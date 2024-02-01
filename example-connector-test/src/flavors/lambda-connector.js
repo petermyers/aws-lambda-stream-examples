@@ -6,7 +6,7 @@ export const lambdaConnectorTest = (rule) => (stream) =>
     .tap(() => console.log("Lambda connector test pipeline beginning."))
     .map(toInvokeRequest(rule))
     .through(invokeLambda(rule))
-    .map((performValidation(rule)))
+    .tap((performValidation(rule)))
     .tap(() => console.log("Lambda connector test pipeline ending."));
 
   const toInvokeRequest = (rule) => faulty((uow) => ({
@@ -26,5 +26,4 @@ export const lambdaConnectorTest = (rule) => (stream) =>
     } else {
       console.log("Lambda connector test validation FAILED.");
     }
-    return true;
   });

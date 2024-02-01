@@ -4,6 +4,7 @@ import { fetchConnectorTest } from '../flavors/fetch-connector';
 import { firehoseConnectorTest } from '../flavors/firehose-connector';
 import { lambdaConnectorTest } from '../flavors/lambda-connector';
 import { secretsConnectorTest } from '../flavors/secrets-connector';
+import { snsConnectorTest } from '../flavors/sns-connector';
 
 export default [
   {
@@ -17,22 +18,26 @@ export default [
   },
   {
     id: 'DynamoDBConnectorTest',
-    flavor: dynamoDbConnectorTest
+    flavor: dynamoDbConnectorTest,
   },
   {
     id: 'FetchConnectorTest',
-    flavor: fetchConnectorTest
+    flavor: fetchConnectorTest,
   },
   {
     id: 'FirehoseConnectorTest',
-    flavor: firehoseConnectorTest
+    flavor: firehoseConnectorTest,
   },
   {
     id: "LambdaConnectorTest",
-    flavor: lambdaConnectorTest
+    flavor: lambdaConnectorTest,
   },
   {
     id: "SecretsMgrConnectorTest",
     flavor: secretsConnectorTest,
+  },
+  {
+    id: "SNSConnectorTest",
+    flavor: snsConnectorTest,
   }
 ];

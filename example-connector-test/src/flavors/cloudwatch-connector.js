@@ -6,7 +6,7 @@ export const cloudwatchConnectorTest = (rule) => (stream) =>
     .tap(() => console.log("Cloudwatch connector test pipeline beginning."))
     .map(toMetricPutRequest(rule))
     .through(putMetrics({ putField: 'metricPutRequest' }))
-    .map((performValidation(rule)))
+    .tap((performValidation(rule)))
     .tap(() => console.log("Cloudwatch connector test pipeline ending."));
 
   // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/PutMetricDataCommand/
@@ -38,5 +38,4 @@ export const cloudwatchConnectorTest = (rule) => (stream) =>
     } else {
       console.log("Cloudwatch connector test validation FAILED.");
     }
-    return true;
   });

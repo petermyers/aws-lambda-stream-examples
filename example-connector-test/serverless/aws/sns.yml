@@ -1,0 +1,18 @@
+output:
+  topicName: ${self:service}-test-topic-${opt:region}
+  topicArn:
+    Ref: TestSnsTopic
+
+iamRoleStatements:
+  Effect: Allow
+  Action:
+    - sns:Publish
+  Resource:
+    Ref: TestSnsTopic
+
+resources:
+  Resources:
+    TestSnsTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: ${self:service}-test-topic-${opt:region}

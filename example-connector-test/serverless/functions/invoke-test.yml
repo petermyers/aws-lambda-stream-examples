@@ -1,1 +1,5 @@
 handler: src/invoke-test/index.handle
+events:
+  - sns:
+      arn: ${file(serverless/aws/sns.yml):output.topicArn}
+      topicName: ${file(serverless/aws/sns.yml):output.topicName}

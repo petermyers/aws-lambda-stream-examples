@@ -46,7 +46,7 @@ export const dynamoDbConnectorTest = (rule) => (stream) =>
     .map(combineScanResponseItems(rule))
 
     // Validate we got back all the data that we had inserted.
-    .map(performValidation(rule))
+    .tap(performValidation(rule))
     .tap(() => console.log("DynamoDB connector test pipeline ending."));
 
 const generatePkSkPair = (uow) => ({
@@ -89,7 +89,6 @@ const performValidation = (rule) => faulty((uow) => {
   } else {
     console.log("DynamoDB connector test validation PASSED");
   }
-  return true;
 });
 
 const buildUpdateRequest = (uow) => ({

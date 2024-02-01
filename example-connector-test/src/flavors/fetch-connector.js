@@ -6,7 +6,7 @@ export const fetchConnectorTest = (rule) => (stream) =>
     .tap(() => console.log("Fetch connector test pipeline beginning."))
     .map(toFetchRequest(rule))
     .through(fetch(rule))
-    .map(performValidation(rule))
+    .tap(performValidation(rule))
     .tap(() => console.log("Fetch connector test pipeline ending."))
 
 const toFetchRequest = (rule) => faulty((uow) => ({
