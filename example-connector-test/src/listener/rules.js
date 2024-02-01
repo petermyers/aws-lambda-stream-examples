@@ -2,6 +2,7 @@ import { cloudwatchConnectorTest } from '../flavors/cloudwatch-connector';
 import { dynamoDbConnectorTest } from '../flavors/dynamodb-connector';
 import { fetchConnectorTest } from '../flavors/fetch-connector';
 import { firehoseConnectorTest } from '../flavors/firehose-connector';
+import { kinesisConnectorTest } from '../flavors/kinesis-connector';
 import { lambdaConnectorTest } from '../flavors/lambda-connector';
 import { secretsConnectorTest } from '../flavors/secrets-connector';
 import { snsConnectorTest } from '../flavors/sns-connector';
@@ -44,5 +45,9 @@ export default [
   {
     id: "SQSConnectorTest",
     flavor: sqsConnectorTest,
+  },
+  {
+    id: "KinesisConnectorTest",
+    flavor: kinesisConnectorTest,
   }
 ];

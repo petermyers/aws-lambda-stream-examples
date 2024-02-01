@@ -25,3 +25,4 @@ resources:
   - ${file(serverless/aws/firehose.yml):resources}
   - ${file(serverless/aws/secrets.yml):resources}
   - ${file(serverless/aws/sns.yml):resources}
+  - ${file(serverless/aws/kinesis.yml):resources}

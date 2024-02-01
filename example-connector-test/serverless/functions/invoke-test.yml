@@ -5,3 +5,6 @@ events:
       topicName: ${file(serverless/aws/sns.yml):output.topicName}
   - sqs:
       arn: ${file(serverless/aws/sqs.yml):output.testQueueArn}
+  - stream: 
+      type: kinesis
+      arn: ${file(serverless/aws/kinesis.yml):output.streamArn}

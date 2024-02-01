@@ -22,7 +22,7 @@ TODO - Image of infrastructure and description of lambdas.
 | DynamoDB    | DynamoDBConnectorTest   | :heavy_check_mark: |
 | Fetch       | FetchConnectorTest      | :heavy_check_mark: |
 | Firehose    | FirehoseConnectorTest   | :heavy_check_mark: |
-| Kinesis     | KinesisConnectorTest    |                    |
+| Kinesis     | KinesisConnectorTest    | :heavy_check_mark: |
 | Lambda      | LambdaConnectorTest     | :heavy_check_mark: |
 | S3          | S3ConnectorTest         |                    |
 | SecretsMgr  | SecretsMgrConnectorTest | :heavy_check_mark: |

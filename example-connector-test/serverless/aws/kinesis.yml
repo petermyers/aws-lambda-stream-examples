@@ -1,0 +1,21 @@
+output:
+  streamName:
+    Ref: TestStream
+  streamArn:
+    Fn::GetAtt: [ TestStream, Arn ]
+
+iamRoleStatements:
+  Effect: Allow
+  Action:
+    - kinesis:PutRecord
+    - kinesis:PutRecords
+  Resource:
+    Fn::GetAtt: [ TestStream, Arn ]
+
+resources:
+  Resources:
+    TestStream:
+      Type: "AWS::Kinesis::Stream"
+      Properties:
+        Name: ${self:service}-test-stream-${opt:region}
+        ShardCount: 1
