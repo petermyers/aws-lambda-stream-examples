@@ -23,3 +23,4 @@ resources:
   - ${file(serverless/aws/sqs.yml):resources}
   - ${file(serverless/aws/stack-output.yml):resources}
   - ${file(serverless/aws/firehose.yml):resources}
+  - ${file(serverless/aws/secrets.yml):resources}

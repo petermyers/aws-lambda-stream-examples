@@ -3,6 +3,7 @@ import { dynamoDbConnectorTest } from '../flavors/dynamodb-connector';
 import { fetchConnectorTest } from '../flavors/fetch-connector';
 import { firehoseConnectorTest } from '../flavors/firehose-connector';
 import { lambdaConnectorTest } from '../flavors/lambda-connector';
+import { secretsConnectorTest } from '../flavors/secrets-connector';
 
 export default [
   {
@@ -29,5 +30,9 @@ export default [
   {
     id: "LambdaConnectorTest",
     flavor: lambdaConnectorTest
+  },
+  {
+    id: "SecretsMgrConnectorTest",
+    flavor: secretsConnectorTest,
   }
 ];

@@ -6,3 +6,4 @@ BUS_NAME: ${file(serverless/aws/event-bus.yml):output.eventBusName}
 BUS_ARN: ${file(serverless/aws/event-bus.yml):output.eventBusArn}
 DELIVERY_STREAM_NAME: ${file(serverless/aws/firehose.yml):output.firehoseDeliveryStreamName}
 INVOKE_LAMBDA_NAME: ${self:service}-${opt:stage}-invoke-test
+NOT_SO_SECRET_NAME: ${file(serverless/aws/secrets.yml):output.notSoSecretName}

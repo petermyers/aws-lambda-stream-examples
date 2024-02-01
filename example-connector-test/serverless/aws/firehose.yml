@@ -78,7 +78,7 @@ resources:
       Type: AWS::S3::Bucket
       DeletionPolicy: Retain
       Properties:
-        BucketName: ${self:service}-${opt:stage}-${opt:region}-firehose
+        BucketName: ${aws:accountId}-${opt:stage}-${opt:region}-firehose
         AccessControl: Private
         # BucketEncryption:
         #   ServerSideEncryptionConfiguration:

@@ -25,7 +25,7 @@ TODO - Image of infrastructure and description of lambdas.
 | Kinesis     | KinesisConnectorTest    |                    |
 | Lambda      | LambdaConnectorTest     | :heavy_check_mark: |
 | S3          | S3ConnectorTest         |                    |
-| SecretsMgr  | FetchConnectorTest      |                    |
+| SecretsMgr  | SecretsMgrConnectorTest | :heavy_check_mark: |
 | Sns         | SnsConnectorTest        |                    |
 | Sqs         | SqsConnectorTest        |                    |
 
