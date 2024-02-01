@@ -1,6 +1,17 @@
 output:
   listenerChannelArn:
     Fn::GetAtt: [ ListenerChannel, Arn ]
+  testQueueArn:
+    Fn::GetAtt: [ TestSqsQueue, Arn ]
+  testQueueUrl:
+    Ref: TestSqsQueue
+
+iamRoleStatements:
+  Effect: Allow
+  Action:
+    - sqs:SendMessage
+  Resource:
+    Fn::GetAtt: [ TestSqsQueue, Arn ]
 
 resources:
   Resources:
@@ -40,3 +51,7 @@ resources:
             Arn:
               Fn::GetAtt: [ ListenerChannel, Arn ]
             InputPath: $.detail
+    TestSqsQueue:
+      Type: "AWS::SQS::Queue"
+      Properties:
+        QueueName: ${self:service}-test-queue-${opt:region}

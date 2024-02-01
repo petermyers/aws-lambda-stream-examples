@@ -5,6 +5,7 @@ import { firehoseConnectorTest } from '../flavors/firehose-connector';
 import { lambdaConnectorTest } from '../flavors/lambda-connector';
 import { secretsConnectorTest } from '../flavors/secrets-connector';
 import { snsConnectorTest } from '../flavors/sns-connector';
+import { sqsConnectorTest } from '../flavors/sqs-connector';
 
 export default [
   {
@@ -39,5 +40,9 @@ export default [
   {
     id: "SNSConnectorTest",
     flavor: snsConnectorTest,
+  },
+  {
+    id: "SQSConnectorTest",
+    flavor: sqsConnectorTest,
   }
 ];

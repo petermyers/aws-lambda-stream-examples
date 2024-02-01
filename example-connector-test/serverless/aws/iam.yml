@@ -8,3 +8,4 @@ role:
     - ${file(serverless/aws/lambda.yml):iamRoleStatements}
     - ${file(serverless/aws/secrets.yml):iamRoleStatements}
     - ${file(serverless/aws/sns.yml):iamRoleStatements}
+    - ${file(serverless/aws/sqs.yml):iamRoleStatements}

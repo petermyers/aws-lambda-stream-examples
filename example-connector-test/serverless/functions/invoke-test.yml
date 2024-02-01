@@ -3,3 +3,5 @@ events:
   - sns:
       arn: ${file(serverless/aws/sns.yml):output.topicArn}
       topicName: ${file(serverless/aws/sns.yml):output.topicName}
+  - sqs:
+      arn: ${file(serverless/aws/sqs.yml):output.testQueueArn}

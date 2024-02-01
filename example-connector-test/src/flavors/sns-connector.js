@@ -16,7 +16,7 @@ export const snsConnectorTest = (rule) => (stream) =>
 const toPublishRequest = (rule) => faulty((uow) => ({
   ...uow,
   message: {
-    Message: 'This is test message 1.'
+    Message: 'This is sns message 1.'
   }
 }));
 
@@ -26,15 +26,15 @@ const toPublishBatchRequest = (rule) => faulty((uow) => ({
     PublishBatchRequestEntries: [
       {
         Id: v4(),
-        Message: 'This is test message 2.'
+        Message: 'This is sns message 2.'
       },
       {
         Id: v4(),
-        Message: 'This is test message 3.'
+        Message: 'This is sns message 3.'
       },
       {
         Id: v4(),
-        Message: 'This is test message 4.'
+        Message: 'This is sns message 4.'
       }
     ]
   }

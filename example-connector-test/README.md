@@ -26,8 +26,8 @@ TODO - Image of infrastructure and description of lambdas.
 | Lambda      | LambdaConnectorTest     | :heavy_check_mark: |
 | S3          | S3ConnectorTest         |                    |
 | SecretsMgr  | SecretsMgrConnectorTest | :heavy_check_mark: |
-| Sns         | SnsConnectorTest        |                    |
-| Sqs         | SqsConnectorTest        |                    |
+| Sns         | SnsConnectorTest        | :heavy_check_mark: |
+| Sqs         | SqsConnectorTest        | :heavy_check_mark: |
 
 To run a connector test, provide the name of the connector as an attribute in the `testEntity` you create or update. (See Execute API below). The exception is EventBridge. Every entity you post flows through the EventBridge connector in the trigger function, so there is no specific connector test in the listener for it.
 
