@@ -24,7 +24,7 @@ TODO - Image of infrastructure and description of lambdas.
 | Firehose    | FirehoseConnectorTest   | :heavy_check_mark: |
 | Kinesis     | KinesisConnectorTest    | :heavy_check_mark: |
 | Lambda      | LambdaConnectorTest     | :heavy_check_mark: |
-| S3          | S3ConnectorTest         |                    |
+| S3          | S3ConnectorTest         | :heavy_check_mark: |
 | SecretsMgr  | SecretsMgrConnectorTest | :heavy_check_mark: |
 | Sns         | SnsConnectorTest        | :heavy_check_mark: |
 | Sqs         | SqsConnectorTest        | :heavy_check_mark: |
