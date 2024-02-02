@@ -11,3 +11,4 @@ NOT_SO_SECRET_NAME: ${file(serverless/aws/secrets.yml):output.notSoSecretName}
 TOPIC_ARN: ${file(serverless/aws/sns.yml):output.topicArn}
 QUEUE_URL: ${file(serverless/aws/sqs.yml):output.testQueueUrl}
 STREAM_NAME: ${file(serverless/aws/kinesis.yml):output.streamName}
+BUCKET_NAME: ${file(serverless/aws/s3.yml):output.testBucketName}

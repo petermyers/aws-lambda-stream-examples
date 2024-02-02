@@ -26,3 +26,4 @@ resources:
   - ${file(serverless/aws/secrets.yml):resources}
   - ${file(serverless/aws/sns.yml):resources}
   - ${file(serverless/aws/kinesis.yml):resources}
+  - ${file(serverless/aws/s3.yml):resources}

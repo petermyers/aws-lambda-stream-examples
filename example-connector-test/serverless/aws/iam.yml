@@ -10,3 +10,4 @@ role:
     - ${file(serverless/aws/sns.yml):iamRoleStatements}
     - ${file(serverless/aws/sqs.yml):iamRoleStatements}
     - ${file(serverless/aws/kinesis.yml):iamRoleStatements}
+    - ${file(serverless/aws/s3.yml):iamRoleStatements}

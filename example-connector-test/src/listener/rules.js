@@ -4,6 +4,7 @@ import { fetchConnectorTest } from '../flavors/fetch-connector';
 import { firehoseConnectorTest } from '../flavors/firehose-connector';
 import { kinesisConnectorTest } from '../flavors/kinesis-connector';
 import { lambdaConnectorTest } from '../flavors/lambda-connector';
+import { s3ConnectorTest } from '../flavors/s3-connector';
 import { secretsConnectorTest } from '../flavors/secrets-connector';
 import { snsConnectorTest } from '../flavors/sns-connector';
 import { sqsConnectorTest } from '../flavors/sqs-connector';
@@ -49,5 +50,9 @@ export default [
   {
     id: "KinesisConnectorTest",
     flavor: kinesisConnectorTest,
+  },
+  {
+    id: "S3ConnectorTest",
+    flavor: s3ConnectorTest,
   }
 ];

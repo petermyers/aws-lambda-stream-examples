@@ -1,0 +1,32 @@
+output:
+  testBucketName:
+    Ref: TestBucket
+
+resources:
+  Resources:
+    TestBucket:
+      Type: AWS::S3::Bucket
+      DeletionPolicy: Retain
+      Properties:
+        BucketName: ${aws:accountId}-${opt:stage}-${opt:region}-test
+        AccessControl: Private
+        # BucketEncryption:
+        #   ServerSideEncryptionConfiguration:
+        #     - ServerSideEncryptionByDefault:
+        #         SSEAlgorithm: AES256
+        VersioningConfiguration:
+          Status: Enabled
+
+iamRoleStatements:
+  Effect: Allow
+  Action:
+    - s3:DeleteObject
+    - s3:GetObject
+    - s3:ListBucket
+    - s3:PutObject
+  Resource: 
+    - Fn::GetAtt: [ TestBucket, Arn ]
+    - Fn::Join:
+      - '/'
+      - - Fn::GetAtt: [ TestBucket, Arn ]
+        - '*'
