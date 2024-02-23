@@ -1,4 +1,4 @@
-import { updateExpression, timestampCondition } from 'aws-lambda-stream';
+import { updateExpression } from 'aws-lambda-stream/utils/dynamodb';
 import {
   now, ttl, mapper
 } from '../utils';

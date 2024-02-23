@@ -1,5 +1,6 @@
 import _ from 'highland';
-import { faulty, sendToSqs } from 'aws-lambda-stream';
+import { sendToSqs } from 'aws-lambda-stream/utils/sqs';
+import { faulty } from 'aws-lambda-stream/utils/faults';
 import { v4 } from 'uuid';
 
 export const sqsConnectorTest = (rule) => (stream) =>

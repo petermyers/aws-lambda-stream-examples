@@ -1,4 +1,5 @@
-import { putMetrics, faulty } from 'aws-lambda-stream';
+import { faulty } from 'aws-lambda-stream/utils/faults';
+import { putMetrics } from 'aws-lambda-stream/utils/cloudwatch';
 
 export const cloudwatchConnectorTest = (rule) => (stream) =>
   stream

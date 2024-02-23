@@ -1,5 +1,6 @@
 import _ from 'highland';
-import { faulty, publishToKinesis } from 'aws-lambda-stream';
+import { faulty } from 'aws-lambda-stream/utils/faults';
+import { publishToKinesis } from 'aws-lambda-stream/utils/kinesis';
 
 export const kinesisConnectorTest = (rule) => (stream) =>
   stream

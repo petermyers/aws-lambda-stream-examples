@@ -1,4 +1,5 @@
-import { sendToFirehose, faulty } from 'aws-lambda-stream';
+import { faulty } from 'aws-lambda-stream/utils/faults';
+import { sendToFirehose } from 'aws-lambda-stream/utils/firehose';
 
 export const firehoseConnectorTest = (rule) => (stream) =>
   stream

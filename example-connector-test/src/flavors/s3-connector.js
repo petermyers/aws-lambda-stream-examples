@@ -3,14 +3,14 @@
 // get 2 objects
 // get 2 object streams
 // delete 2 objects
+import { faulty } from 'aws-lambda-stream/utils/faults';
 import { 
-  faulty, 
   putObjectToS3, 
   deleteObjectFromS3,
   getObjectFromS3,
   getObjectFromS3AsStream,
   listObjectsFromS3
-} from 'aws-lambda-stream';
+} from 'aws-lambda-stream/utils/s3';
 import _ from 'highland';
 
 export const s3ConnectorTest = (rule) => (stream) =>

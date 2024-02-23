@@ -1,5 +1,7 @@
 import _ from 'highland';
-import { debug as d, rejectWithFault, SecretsMgrConnector, faulty } from 'aws-lambda-stream';
+import { faulty, rejectWithFault } from 'aws-lambda-stream/utils/faults';
+import { debug as d } from 'aws-lambda-stream/utils/print';
+import SecretsMgrConnector from 'aws-lambda-stream/connectors/secretsmgr';
 
 export const secretsConnectorTest = (rule) => (stream) =>
   stream

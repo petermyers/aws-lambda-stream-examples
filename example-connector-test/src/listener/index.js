@@ -1,11 +1,9 @@
-import {
-  initialize,
-  initializeFrom,
-  defaultOptions,
-  decryptEvent,
-  fromSqsEvent,
-  toPromise,
-} from 'aws-lambda-stream';
+import { initialize, initializeFrom } from 'aws-lambda-stream/pipelines';
+import { defaultOptions } from 'aws-lambda-stream/utils/opt';
+import { decryptEvent } from 'aws-lambda-stream/utils/encryption';
+import { fromSqsEvent } from 'aws-lambda-stream/from/sqs';
+import { toPromise } from 'aws-lambda-stream/utils/handler';
+
 import RULES from './rules';
 
 const OPTIONS = { ...defaultOptions };

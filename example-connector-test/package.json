@@ -93,6 +93,8 @@
     "@aws-sdk/s3-request-presigner": "^3.450.0",
     "@babel/runtime": "^7.23.2",
     "@smithy/node-http-handler": "^2.1.9",
+    "@smithy/util-retry": "^2.1.1",
+    "@smithy/util-stream": "^2.1.1",
     "aws-kms-ee": "^1.0.0",
     "aws-lambda-stream": "^1.0.0",
     "bluebird": "^3.7.2",

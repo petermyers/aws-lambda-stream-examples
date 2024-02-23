@@ -1,4 +1,5 @@
-import { cdc, publishToEventBridge } from 'aws-lambda-stream';
+import { cdc } from 'aws-lambda-stream/flavors/cdc';
+import { publishToEventBridge } from 'aws-lambda-stream/utils/eventbridge'
 import { toEvent } from '../models/test-entity';
 
 export default [

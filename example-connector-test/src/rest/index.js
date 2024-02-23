@@ -1,5 +1,5 @@
 import { debug as d } from 'debug';
-import { DynamoDBConnector } from 'aws-lambda-stream';
+import DynamoDBConnector from 'aws-lambda-stream/connectors/dynamodb';
 import apiGenerator from 'lambda-api';
 import { createTestEntity, deleteTestEntity, getTestEntity, listTestEntities, updateTestEntity } from './routes/test-entity';
 import Model from '../models/test-entity';

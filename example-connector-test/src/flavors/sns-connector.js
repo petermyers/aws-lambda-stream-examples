@@ -1,5 +1,9 @@
 import _ from 'highland';
-import { SnsConnector, rejectWithFault, debug as d, ratelimit, faulty, publishToSns } from 'aws-lambda-stream';
+import { faulty, rejectWithFault } from 'aws-lambda-stream/utils/faults';
+import { debug as d } from 'aws-lambda-stream/utils/print';
+import { publishToSns } from 'aws-lambda-stream/utils/sns';
+import { ratelimit } from 'aws-lambda-stream/utils/ratelimit';
+import SnsConnector from 'aws-lambda-stream/connectors/sns';
 import { v4 } from 'uuid';
 
 export const snsConnectorTest = (rule) => (stream) =>
