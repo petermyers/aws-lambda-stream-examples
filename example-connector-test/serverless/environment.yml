@@ -12,3 +12,6 @@ TOPIC_ARN: ${file(serverless/aws/sns.yml):output.topicArn}
 QUEUE_URL: ${file(serverless/aws/sqs.yml):output.testQueueUrl}
 STREAM_NAME: ${file(serverless/aws/kinesis.yml):output.streamName}
 BUCKET_NAME: ${file(serverless/aws/s3.yml):output.testBucketName}
+
+MASTER_KEY_ALIAS: ${file(serverless/aws/kms.yml):output.masterKeyAlias}
+KMS_REGIONS: us-east-1

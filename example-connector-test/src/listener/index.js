@@ -21,7 +21,8 @@ export class Handler {
     return initialize(PIPELINES, this.options)
       .assemble(fromSqsEvent(event)
         .through(decryptEvent({
-          ...this.options
+          ...this.options,
+          prefilter: () => true
         })),
       includeErrors);
   }

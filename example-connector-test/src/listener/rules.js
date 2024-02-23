@@ -13,7 +13,7 @@ export default [
   {
     id: 'LoggerPipeline',
     // Logs any event that this lambda receives.
-    flavor: () => (s) => s.tap((uow) => console.log(uow)),
+    flavor: () => (s) => s.tap((uow) => console.log("LOGGER PIPELINE: %j", uow)),
   },
   {
     id: 'CloudwatchConnectorTest',

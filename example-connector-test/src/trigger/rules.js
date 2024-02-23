@@ -9,6 +9,10 @@ export default [
     // eventType: /test-entity-(created|updated|deleted)/,
     eventType: /test-entity-(created|updated)/,
     toEvent,
-    publish: publishToEventBridge
+    publish: publishToEventBridge,
+    // Probably wouldn't typically encrypt this metadata, but it's for testing...
+    eem: {
+      fields: [ '_entityMetadata_' ]
+    }
   }
 ];
