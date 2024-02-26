@@ -1,5 +1,5 @@
 import { faulty } from 'aws-lambda-stream/utils/faults';
-import { invokeLambda } from 'aws-lambda-stream/utils/lambda';
+import { invokeLambda } from 'aws-lambda-stream/sinks/lambda';
 
 export const lambdaConnectorTest = (rule) => (stream) =>
   stream

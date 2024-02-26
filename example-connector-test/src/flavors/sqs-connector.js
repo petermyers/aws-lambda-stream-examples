@@ -1,5 +1,5 @@
 import _ from 'highland';
-import { sendToSqs } from 'aws-lambda-stream/utils/sqs';
+import { sendToSqs } from 'aws-lambda-stream/sinks/sqs';
 import { faulty } from 'aws-lambda-stream/utils/faults';
 import { v4 } from 'uuid';
 

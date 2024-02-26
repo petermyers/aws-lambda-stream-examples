@@ -6,7 +6,7 @@ import {
   batchGetDynamoDB,
   scanSplitDynamoDB,
   updateExpression,
-} from 'aws-lambda-stream/utils/dynamodb';
+} from 'aws-lambda-stream/sinks/dynamodb';
 import _ from 'lodash';
 import { v4 } from 'uuid';
 

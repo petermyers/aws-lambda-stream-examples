@@ -10,7 +10,7 @@ import {
   getObjectFromS3,
   getObjectFromS3AsStream,
   listObjectsFromS3
-} from 'aws-lambda-stream/utils/s3';
+} from 'aws-lambda-stream/sinks/s3';
 import _ from 'highland';
 
 export const s3ConnectorTest = (rule) => (stream) =>

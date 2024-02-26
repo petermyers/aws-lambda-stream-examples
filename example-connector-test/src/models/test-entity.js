@@ -1,4 +1,5 @@
-import { updateExpression } from 'aws-lambda-stream/utils/dynamodb';
+import { updateExpression } from 'aws-lambda-stream/sinks/dynamodb';
+import { defaultDebugLogger } from 'aws-lambda-stream/utils/log';
 import {
   now, ttl, mapper
 } from '../utils';
@@ -14,7 +15,7 @@ class Model {
     connector,
     userContext
   ) {
-    this.debug = debug;
+    this.debug = defaultDebugLogger(debug);
     this.connector = connector;
     this.userContext = userContext;
   }

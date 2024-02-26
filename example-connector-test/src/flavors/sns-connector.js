@@ -1,7 +1,7 @@
 import _ from 'highland';
 import { faulty, rejectWithFault } from 'aws-lambda-stream/utils/faults';
 import { debug as d } from 'aws-lambda-stream/utils/print';
-import { publishToSns } from 'aws-lambda-stream/utils/sns';
+import { publishToSns } from 'aws-lambda-stream/sinks/sns';
 import { ratelimit } from 'aws-lambda-stream/utils/ratelimit';
 import SnsConnector from 'aws-lambda-stream/connectors/sns';
 import { v4 } from 'uuid';

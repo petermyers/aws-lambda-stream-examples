@@ -1,5 +1,5 @@
 import { faulty } from 'aws-lambda-stream/utils/faults';
-import { fetch } from 'aws-lambda-stream/utils/fetch';
+import { fetch } from 'aws-lambda-stream/sinks/fetch';
 
 export const fetchConnectorTest = (rule) => (stream) =>
   stream
