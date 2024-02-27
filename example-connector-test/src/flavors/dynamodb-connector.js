@@ -2,11 +2,13 @@ import { faulty } from 'aws-lambda-stream/utils/faults';
 import { 
   putDynamoDB, 
   updateDynamoDB,
+  updateExpression,
+} from 'aws-lambda-stream/sinks/dynamodb';
+import {
   queryAllDynamoDB,
   batchGetDynamoDB,
   scanSplitDynamoDB,
-  updateExpression,
-} from 'aws-lambda-stream/sinks/dynamodb';
+} from 'aws-lambda-stream/queries/dynamodb';
 import _ from 'lodash';
 import { v4 } from 'uuid';
 

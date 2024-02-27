@@ -2,3 +2,12 @@ webpack:
   includeModules: true
   
 # vpcConfig: ${file(serverless/aws/vpc.yml)}
+
+serverless-s3-cleaner:
+  prompt: true
+  buckets:
+    - ${aws:accountId}-${opt:stage}-${opt:region}-firehose
+    - ${aws:accountId}-${opt:stage}-${opt:region}-test
+  # bucketsToCleanOnDeploy:
+  #   - ${aws:accountId}-${opt:stage}-${opt:region}-firehose
+  #   - ${aws:accountId}-${opt:stage}-${opt:region}-test

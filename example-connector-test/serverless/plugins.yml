@@ -3,3 +3,4 @@
 - serverless-offline
 # - serverless-vpc-plugin
 - serverless-deployment-bucket
+- serverless-s3-cleaner

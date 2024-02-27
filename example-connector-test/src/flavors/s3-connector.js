@@ -7,10 +7,12 @@ import { faulty } from 'aws-lambda-stream/utils/faults';
 import { 
   putObjectToS3, 
   deleteObjectFromS3,
+} from 'aws-lambda-stream/sinks/s3';
+import {
   getObjectFromS3,
   getObjectFromS3AsStream,
   listObjectsFromS3
-} from 'aws-lambda-stream/sinks/s3';
+} from 'aws-lambda-stream/queries/s3';
 import _ from 'highland';
 
 export const s3ConnectorTest = (rule) => (stream) =>
